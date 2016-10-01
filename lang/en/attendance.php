@@ -333,3 +333,16 @@ $string['repeaton'] = 'Repeat on';
 $string['invalidsessionendtime'] = 'The end time must be greater than start time';
 $string['deletedgroup'] = 'The group associated with this session has been deleted';
 $string['search:activity'] = 'Attendance - activity information';
+
+$string['attendanceimport'] = 'Attendance import';
+$string['import'] = 'Import';
+$string['importandcontinue'] = 'Import and continue';
+$string['nostatusesexists'] = 'No available statuses';
+$string['setstatus'] = 'Assign status';
+$string['userslisttoimport'] = 'Users list';
+$string['userslisttoimport_help'] = 'Users list to mark attendance, one user by line';
+$string['userslistempty'] = 'Users list empty';
+$string['userslist_required'] = 'Users list is required';
+$string['notimported'] = 'The next attendance was not be imported';
+$string['importedsuccess'] = 'The next attendance was imported';
+$string['set_imported'] = 'Imported';

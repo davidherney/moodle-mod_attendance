@@ -127,6 +127,29 @@ class mod_attendance_structure {
     }
 
     /**
+     * Returns past or current sessions for this attendance.
+     *
+     * Fetches data from {attendance_sessions}
+     *
+     * @return array of records or an empty array
+     */
+    public function get_past_sessions() {
+        global $DB;
+
+        $today = time(); // Because we compare with database, we don't need to use usertime().
+
+        $sql = "SELECT *
+                  FROM {attendance_sessions}
+                 WHERE sessdate < :time
+                   AND attendanceid = :aid";
+        $params = array(
+            'time'  => $today,
+            'aid'   => $this->id);
+
+        return $DB->get_records_sql($sql, $params);
+    }
+
+    /**
      * Returns today sessions for this attendance
      *
      * Fetches data from {attendance_sessions}
@@ -254,6 +277,14 @@ class mod_attendance_structure {
     public function url_manage($params=array()) {
         $params = array_merge(array('id' => $this->cm->id), $params);
         return new moodle_url('/mod/attendance/manage.php', $params);
+    }
+
+    /**
+     * @return moodle_url of attendanceimport.php for attendance instance
+     */
+    public function url_attendanceimport($params=array()) {
+        $params = array_merge(array('id' => $this->cm->id), $params);
+        return new moodle_url('/mod/attendance/attendanceimport.php', $params);
     }
 
     /**
